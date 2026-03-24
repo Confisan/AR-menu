@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AR View</title>
+  <title>AR Menu</title>
 
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/ar.js@3.3.2/aframe/build/aframe-ar.js"></script>
 
-  <style>
-    body { margin:0; overflow:hidden; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body>
+<body style="margin:0; overflow:hidden;">
 
-<a-scene embedded arjs>
+<a-scene 
+  embedded 
+  arjs="sourceType: webcam; debugUIEnabled: false;">
 
-  <!-- Camera -->
+  <!-- Marker -->
   <a-marker preset="hiro">
 
- <a-entity 
-  gltf-model="https://modelviewer.dev/shared-assets/models/Hamburger.glb"
-  scale="0.5 0.5 0.5"
-  rotation="0 180 0">
-  </a-entity>
- </a-marker>
+    <!-- 3D Model -->
+    <a-entity 
+      gltf-model="https://modelviewer.dev/shared-assets/models/Hamburger.glb"
+      scale="0.5 0.5 0.5"
+      rotation="0 180 0">
+    </a-entity>
 
+  </a-marker>
+
+  <!-- Camera -->
   <a-entity camera></a-entity>
 
 </a-scene>
