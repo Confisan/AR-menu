@@ -1,40 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/ar.js@3.3.2/aframe/build/aframe-ar.js"></script>
+  <title>AR View</title>
+
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ar.js@3.3.2/aframe/build/aframe-ar.js"></script>
+
+  <style>
+    body { margin:0; overflow:hidden; }
+  </style>
 </head>
 
-<body style="margin:0">
+<body>
 
 <a-scene embedded arjs>
 
-<a-marker preset="hiro">
+  <!-- Camera -->
+  <a-marker preset="hiro">
 
-<a-entity id="model"
-scale="0.5 0.5 0.5"
-animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
-</a-entity>
+ <a-entity 
+  gltf-model="https://modelviewer.dev/shared-assets/models/Hamburger.glb"
+  scale="0.5 0.5 0.5"
+  rotation="0 180 0">
+  </a-entity>
+ </a-marker>
 
-</a-marker>
-
-<a-entity camera></a-entity>
+  <a-entity camera></a-entity>
 
 </a-scene>
-
-<script>
-const params = new URLSearchParams(window.location.search);
-const food = params.get("food");
-
-const model = document.getElementById("model");
-
-if(food === "pizza"){
-  model.setAttribute("gltf-model","https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models/2.0/Pizza/glTF-Binary/Pizza.glb");
-} else {
-  model.setAttribute("gltf-model","https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models/2.0/Burger/glTF-Binary/Burger.glb");
-}
-</script>
 
 </body>
 </html>
