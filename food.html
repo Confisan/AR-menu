@@ -3,23 +3,30 @@
 <head>
 <link rel="stylesheet" href="style.css">
 </head>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 <body>
 
-<h1 id="foodTitle"></h1>
+<h1 id="foodName"></h1>
 
-<button onclick="openAR()">✨ View in AR</button>
+<div class="swipe-container">
 
-<div id="infoBox">
-  <p id="content"></p>
+  <div class="swipe-card">
+    <h3>🍔 Details</h3>
+    <p>Delicious premium dish with rich ingredients.</p>
+  </div>
+
+  <div class="swipe-card">
+    <h3>🔥 Nutrition</h3>
+    <p>Calories: 450 kcal<br>Protein: 25g</p>
+  </div>
+
+  <div class="swipe-card">
+    <h3>⚙️ Customize</h3>
+    <p>Add cheese, remove onions, extra sauce.</p>
+  </div>
+
 </div>
 
-<button onclick="speak()">🔊 Listen</button>
-
-<img id="qrCode">
-
-<script src="script.js"></script>
-
-</body>
-</html>
+<button onclick="goToAR()">✨ View in AR</button>
 <button onclick="placeOrder()">🛒 Order Now</button>

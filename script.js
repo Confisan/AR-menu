@@ -1,3 +1,17 @@
+let selectedFood = "";
+
+// When user clicks food card
+function openFood(food){
+  selectedFood = food;
+  window.location.href = "food.html?food=" + food;
+}
+
+// Go to AR page
+function goToAR(){
+  window.location.href = "ar.html?food=" + selectedFood;
+}
+
+// Place order
 function placeOrder(){
   fetch("http://localhost:5000/order", {
     method: "POST",
@@ -8,11 +22,7 @@ function placeOrder(){
       item: selectedFood,
       time: new Date().toLocaleString()
     })
-  })
-  .then(() => {
-    alert("✅ Order placed successfully!");
   });
-}
-function openFood(food){
-  window.location.href = "food.html?food=" + food;
+
+  alert("✅ Order placed!");
 }
