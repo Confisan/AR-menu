@@ -4,28 +4,42 @@
   <title>VisionMenu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+  <!-- 3D MODEL VIEWER -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <h1>🍽️ VisionMenu</h1>
 
-<div class="container">
+<h2 id="foodName"></h2>
 
-  <div class="card" onclick="openFood('burger')">
-    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
-    <h2>Burger</h2>
-  </div>
+<model-viewer 
+  id="viewer"
+  src="https://modelviewer.dev/shared-assets/models/Hamburger.glb"
+  camera-controls
+  auto-rotate
+  ar
+  ar-modes="scene-viewer webxr quick-look"
+  shadow-intensity="1">
+</model-viewer>
 
-  <div class="card" onclick="openFood('pizza')">
-    <img src="https://images.unsplash.com/photo-1548365328-9f547fb0953d">
-    <h2>Pizza</h2>
-  </div>
-
+<div class="info">
+  <p id="details"></p>
+  <p id="nutrition"></p>
+  <p id="customizeText">🎤 Tap mic to customize</p>
 </div>
+
+<div class="buttons">
+  <button onclick="prevFood()">⬅️</button>
+  <button onclick="nextFood()">➡️</button>
+</div>
+
+<button onclick="startVoice()">🎤 Speak</button>
+<button onclick="openAR()">📱 View on Table</button>
+<button onclick="placeOrder()">🛒 Order</button>
 
 <script src="script.js"></script>
 

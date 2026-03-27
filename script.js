@@ -26,41 +26,49 @@ function loadFood(){
   index = foods.findIndex(f => f.name === selected);
   if(index === -1) index = 0;
 
-  updateUI();
-}
-
-function updateUI(){
   let viewer = document.getElementById("viewer");
-  if(!viewer) return;
 
-  viewer.src = foods[index].model;
-
-  document.getElementById("foodTitle").innerText = foods[index].name;
-  document.getElementById("details").innerText = foods[index].details;
-  document.getElementById("nutrition").innerText = foods[index].nutrition;
+  if(viewer){
+    viewer.src = foods[index].model;
+    document.getElementById("foodTitle").innerText = foods[index].name;
+    document.getElementById("details").innerText = foods[index].details;
+    document.getElementById("nutrition").innerText = foods[index].nutrition;
+  }
 }
 
 function openAR(){
-  document.getElementById("viewer").activateAR();
+  let viewer = document.getElementById("viewer");
+  if(viewer){
+    viewer.activateAR();
+  }
 }
 
 function placeOrder(){
-  fetch("http://localhost:5000/order",{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body: JSON.stringify({food: foods[index].name})
-  })
-  .then(res=>res.json())
-  .then(data=>alert(data.message));
+  alert("Order placed: " + foods[index].name);
 }
 
+/* FIXED VOICE */
 function startVoice(){
+  if(!('webkitSpeechRecognition' in window)){
+    alert("Voice not supported in this browser");
+    return;
+  }
+
   const recognition = new webkitSpeechRecognition();
-  recognition.onresult = (e)=>{
+
+  recognition.onresult = function(e){
     let text = e.results[0][0].transcript;
-    document.getElementById("customizeText").innerText = text;
+
+    document.getElementById("customizeText").innerText =
+      "You said: " + text;
   };
+
   recognition.start();
 }
 
-window.onload = loadFood;
+/* SAFE LOAD */
+window.onload = function(){
+  if(document.getElementById("viewer")){
+    loadFood();
+  }
+};
