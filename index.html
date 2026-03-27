@@ -2,29 +2,85 @@
 <html>
 <head>
   <title>VisionMenu</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Mobile Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css?v=7">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 <body>
 
 <h1>🍽️ VisionMenu</h1>
 
+<p style="text-align:center; opacity:0.7;">Tap a dish to explore in 3D 👇</p>
+
 <div class="container">
 
+  <!-- BURGER -->
   <div class="card" onclick="openFood('burger')">
     <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
     <h2>Gourmet Burger</h2>
-    <button>View in AR</button>
+    <button>View Menu</button>
   </div>
 
+  <!-- PIZZA -->
   <div class="card" onclick="openFood('pizza')">
     <img src="https://images.unsplash.com/photo-1548365328-9f547fb0953d">
     <h2>Pizza</h2>
-    <button>View in AR</button>
+    <button>View Menu</button>
+  </div>
+
+  <!-- PASTA -->
+  <div class="card" onclick="openFood('pasta')">
+    <img src="https://images.unsplash.com/photo-1525755662778-989d0524087e">
+    <h2>Pasta</h2>
+    <button>View Menu</button>
+  </div>
+
+  <!-- SANDWICH -->
+  <div class="card" onclick="openFood('sandwich')">
+    <img src="https://images.unsplash.com/photo-1553909489-cd47e0907980">
+    <h2>Sandwich</h2>
+    <button>View Menu</button>
+  </div>
+
+  <!-- CAKE -->
+  <div class="card" onclick="openFood('cake')">
+    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587">
+    <h2>Chocolate Cake</h2>
+    <button>View Menu</button>
+  </div>
+
+  <!-- COFFEE -->
+  <div class="card" onclick="openFood('coffee')">
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+    <h2>Coffee</h2>
+    <button>View Menu</button>
+  </div>
+
+  <!-- FRIES -->
+  <div class="card" onclick="openFood('fries')">
+    <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5">
+    <h2>Fries</h2>
+    <button>View Menu</button>
+  </div>
+
+  <!-- ICE CREAM -->
+  <div class="card" onclick="openFood('ice cream')">
+    <img src="https://images.unsplash.com/photo-1505253758473-96b7015fcd40">
+    <h2>Ice Cream</h2>
+    <button>View Menu</button>
   </div>
 
 </div>
+
+<!-- SCRIPT (VERY IMPORTANT AT BOTTOM) -->
+<script src="script.js?v=7"></script>
 
 </body>
 </html>
