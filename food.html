@@ -1,51 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>3D Food View</title>
-  <p style="text-align:center; opacity:0.7;">👈 Swipe to explore dishes 👉</p>
+  <title>Food View</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script type="module"
-    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
-  </script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1 id="foodTitle">🍽️ 3D Menu</h1>
+<h1 id="foodTitle"></h1>
 
-<!-- 3D MODEL -->
 <model-viewer 
   id="viewer"
   src=""
   camera-controls
   auto-rotate
-  style="width:100%; height:50vh;">
+  ar
+  ar-modes="scene-viewer webxr quick-look">
 </model-viewer>
 
-<!-- SWIPE INFO -->
-<div class="swipe-container">
+<button onclick="openAR()">📱 View on Table</button>
+<button onclick="startVoice()">🎤 Customize</button>
 
-  <div class="swipe-card">
-    <h3>🍴 Details</h3>
+<div class="swipe">
+
+  <div class="box">
+    <h3>Details</h3>
     <p id="details"></p>
   </div>
 
-  <div class="swipe-card">
-    <h3>🔥 Nutrition</h3>
+  <div class="box">
+    <h3>Nutrition</h3>
     <p id="nutrition"></p>
   </div>
 
-  <div class="swipe-card">
-    <h3>⚙️ Customize</h3>
-    <p>Add toppings, extra cheese, etc.</p>
+  <div class="box">
+    <h3>Customize</h3>
+    <p id="customizeText">Use voice</p>
   </div>
 
 </div>
 
-<button onclick="nextFood()">➡️ Next Dish</button>
-<button onclick="placeOrder()">🛒 Order Now</button>
+<button onclick="placeOrder()">Order</button>
 
 <script src="script.js"></script>
 
